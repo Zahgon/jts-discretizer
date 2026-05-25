@@ -7,11 +7,9 @@ import io.github.adrianulbona.jts.discretizer.GeometryDiscretizer;
 import io.github.adrianulbona.jts.discretizer.util.CoordinateDiscretizer;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
-
 import static java.util.stream.Collectors.toSet;
 
 /**
@@ -20,11 +18,10 @@ import static java.util.stream.Collectors.toSet;
 @RequiredArgsConstructor
 public class PointDiscretizer implements GeometryDiscretizer<Point> {
 
-	private final BiFunction<Coordinate, Integer, GeoHash> coordinateDiscretizer;
+    private final BiFunction<Coordinate, Integer, GeoHash> coordinateDiscretizer;
 
-	@Override
-	public Set<GeoHash> apply(@NonNull Point geometry, @NonNull Integer precision) {
-		return Stream.of(this.coordinateDiscretizer.apply(geometry.getCoordinate(), precision))
-				.collect(toSet());
-	}
+    @Override
+    public Set<GeoHash> apply(@NonNull Point geometry, @NonNull Integer precision) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

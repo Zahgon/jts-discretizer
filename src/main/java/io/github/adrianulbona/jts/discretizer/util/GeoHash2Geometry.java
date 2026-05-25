@@ -9,7 +9,6 @@ import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.MultiPoint;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -19,14 +18,10 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 public class GeoHash2Geometry implements BiFunction<GeoHash, GeometryFactory, Geometry> {
 
-	private final Function<WGS84Point, Coordinate> WGS84Point2coordinate;
+    private final Function<WGS84Point, Coordinate> WGS84Point2coordinate;
 
-	@Override
-	public Geometry apply(@NonNull GeoHash geoHash, @NonNull GeometryFactory geometryFactory) {
-		final BoundingBox boundingBox = geoHash.getBoundingBox();
-		final Coordinate upperLeft = this.WGS84Point2coordinate.apply(boundingBox.getUpperLeft());
-		final Coordinate lowerRight = this.WGS84Point2coordinate.apply(boundingBox.getLowerRight());
-		final MultiPoint multiPoint = geometryFactory.createMultiPoint(new Coordinate[]{upperLeft, lowerRight});
-		return multiPoint.getEnvelope();
-	}
+    @Override
+    public Geometry apply(@NonNull GeoHash geoHash, @NonNull GeometryFactory geometryFactory) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }
